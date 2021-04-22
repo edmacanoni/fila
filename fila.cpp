@@ -51,10 +51,11 @@ TipoItem fila::remover(){
 }
 
 void fila::imprimir(){
-  cout << "Lista: [";
-  for (int i =primeiro; i < ultimo; i++ ){
-  cout << estrutura[i % max_itens] << " ";
-  }
-  cout << " ]\n";
+ cout << "Fila: [ ";
+  for (int i = primeiro; i < ultimo; i++){
+    cout << estrutura[i % max_itens] << " ";
+    }
+    
+    cout << "]\n";
 }
 
