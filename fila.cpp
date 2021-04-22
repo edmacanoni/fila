@@ -5,30 +5,56 @@ using namespace std;
 
 fila::fila(){
 
+  primeiro = 0;
+  ultimo = 0;
+  estrutura = new TipoItem[max_itens];
 }
 
 fila::~fila(){
+  delete [] estrutura ;
 
 }
 
 
 bool fila::estavazio(){
+  
+  return (primeiro == ultimo);
 
 }
 
 bool fila::estacheio(){
 
+  return (ultimo - primeiro == max_itens);
 }
 
 void fila::inserir(TipoItem item){
+  
+  if(estacheio()){
+   cout << "Cheio\n"; 
+  }else {
+    estrutura[ultimo % max_itens] = item;
+    ultimo++;
+    }
 
 }
 
 TipoItem fila::remover(){
   
+  if (estavazio()){
+    cout << "fila vazia\n";
+    
+    }else {
+      primeiro++;
+      return (estrutura[(primeiro-1) % max_itens]);
+      }
+  
 }
 
 void fila::imprimir(){
-  
+  cout << "Lista: [";
+  for (int i =primeiro; i < ultimo; i++ ){
+  cout << estrutura[i % max_itens] << " ";
+  }
+  cout << " ]\n";
 }
 
